@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+<style>
+    body{
+        background-color: #ffffff;
+    }
+    #cal{
+        font-size: 30px;
+    }
+    #output{
+        border: 1px solid black;
+    }
+    .tbl{
+        box-shadow: 0px 0px 10px 1px black;
+        background-color: #b8b7b7;
+        border-radius: 6px;
+        width: 400px;
+        height: 500px;
+        margin-top: 80px;
+    }
+    input[type="text"]{
+        width: 50%;
+        height: 37px;
+        text-align: center;
+        font-size: 23px;
+    }
+    th{
+        width: 24%;
+        height: 40px;
+        font-size: 20px;
+    }
+    .t:hover{
+        cursor: pointer;
+        border: 2px solid black;
+        transform: scale(1.03);
+    }
+</style>
+<script>
+    function doCal(val){
+        var ptr=document.getElementById("output");
+        ptr.value=ptr.value+val;
+    }
+    function doEval(){
+        var ptr=document.getElementById("output");
+        ptr.value=eval(ptr.value);
+    }
+    function doClr(){
+        var ptr=document.getElementById("output");
+        ptr.value="";
+    }
+    function doDel(){
+        var ptr=document.getElementById("output");
+        ptr.value=ptr.value.substr(0,ptr.value.length-1);
+    }
+</script>
+<body>
+    <center>
+        <table class="tbl" rules="all">
+            <tr>
+                <th colspan="4" id="cal">Calculator</th>
+            </tr>
+            
+            <tr>
+                <th colspan="4"><input type="text" readonly id="output" style="text-align: right; width: 360px"></th>
+            </tr>
+            <tr>
+                <th><input type="text" class="t" value="Clr" readonly onclick="doClr();"></th>
+                <th><input type="text" class="t" value="%" readonly onclick="doCal('%');"></th>
+                <th><input type="text" class="t" value="Del" readonly onclick="doDel();"></th>
+                <th><input type="text" class="t" value="/" readonly onclick="doCal('/');"></th>
+            </tr>
+            <tr>
+                <th><input type="text" class="t" value="7" readonly onclick="doCal('7');"></th>
+                <th><input type="text" class="t" value="8" readonly onclick="doCal('8');"></th>
+                <th><input type="text" class="t" value="9" readonly onclick="doCal('9');"></th>
+                <th><input type="text" class="t" value="*" readonly onclick="doCal('*');"></th>
+            </tr>
+            <tr>
+                <th><input type="text" class="t" value="4" readonly onclick="doCal('4');"></th>
+                <th><input type="text" class="t" value="5" readonly onclick="doCal('5');"></th>
+                <th><input type="text" class="t" value="6" readonly onclick="doCal('6');"></th>
+                <th><input type="text" class="t" value="-" readonly onclick="doCal('-');"></th>
+            </tr>
+            <tr>
+                <th><input type="text" class="t" value="1" readonly onclick="doCal('1');"></th>
+                <th><input type="text" class="t" value="2" readonly onclick="doCal('2');"></th>
+                <th><input type="text" class="t" value="3" readonly onclick="doCal('3');"></th>
+                <th><input type="text" class="t" value="+" readonly onclick="doCal('+');"></th>
+            </tr>
+            <tr>
+                <th><input type="text" class="t" value="00" readonly onclick="doCal('00');"></th>
+                <th><input type="text" class="t" value="0" readonly onclick="doCal('0');"></th>
+                <th><input type="text" class="t" value="." readonly onclick="doCal('.');"></th>
+                <th><input type="text" class="t" value="=" readonly onclick="doEval();"></th>
+            </tr>
+            
+        </table>
+    </center>
+</body>
+</html>
